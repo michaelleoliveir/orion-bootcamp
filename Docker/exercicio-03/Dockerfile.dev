@@ -1,0 +1,23 @@
+# imagem base leve
+FROM node:alpine
+
+# diretório do trabalho
+WORKDIR /usr/src/app
+
+# copiar os arquivos de dependência
+COPY package*.json ./
+
+# instalar dependências
+RUN npm install
+
+# instalar o nodemon globalmente
+RUN npm install -g nodemon
+
+# copiar o restante
+COPY . .
+
+# expor porta
+EXPOSE 3000
+
+# comando para iniciar aplicação
+CMD ["nodemon", "app/server.js"]
