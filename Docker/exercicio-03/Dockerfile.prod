@@ -1,0 +1,29 @@
+# imagem base leve
+FROM node:alpine AS builder
+
+# diretório do trabalho
+WORKDIR /usr/src/app
+
+# copiar os arquivos de dependência
+COPY package*.json ./
+
+# instalar dependências de produção
+RUN npm ci --only=production
+
+# copiar o restante
+COPY . .
+
+# imagem final leve
+FROM node:18-alpine
+
+# diretório do trabalho
+WORKDIR /usr/src/app
+
+# copiar dependências
+COPY --from=builder /usr/src/app ./
+
+# expor a porta da aplicação
+EXPOSE 3000
+
+# iniciar aplicação
+CMD ["node", "app/server.js"]

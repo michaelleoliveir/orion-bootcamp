@@ -1,0 +1,16 @@
+{
+    "name": "exercicio-03",
+    "version": "1.0.0",
+    "type": "module",
+    "main": "server.js",
+    "scripts": {
+        "start": "node app/server.js",
+        "dev": "nodemon app/server.js"
+    },
+    "dependencies": {
+        "express": "^4.19.2"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.22"
+    }
+}
