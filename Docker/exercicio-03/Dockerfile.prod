@@ -1,5 +1,5 @@
 # imagem base leve
-FROM node:alpine AS builder
+FROM node:18-alpine AS builder
 
 # diretório do trabalho
 WORKDIR /usr/src/app
