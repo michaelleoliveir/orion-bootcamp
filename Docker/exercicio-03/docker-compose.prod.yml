@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   api:
     build:
@@ -19,6 +17,11 @@ services:
       - .env
     volumes:
       - pgdata_prod:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "michaelle"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   pgdata_prod:
