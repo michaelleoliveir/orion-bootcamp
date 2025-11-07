@@ -10,3 +10,9 @@ services:
     volumes:
       - .:/app
     command: node exercicio-04.js
+    networks:
+      - database_orion_network
+
+networks:
+  database_orion_network:
+    external: true

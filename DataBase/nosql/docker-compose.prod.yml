@@ -8,3 +8,9 @@ services:
     env_file:
       - .env
     command: node exercicio-04.js
+    networks:
+      - database_orion_network
+
+networks:
+  database_orion_network:
+    external: true

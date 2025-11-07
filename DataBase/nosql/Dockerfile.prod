@@ -14,4 +14,4 @@ WORKDIR /app
 
 COPY --from=builder /app ./
 
-CMD ["node", "exercicio-03.js"]
+CMD ["node", "exercicio-04.js"]

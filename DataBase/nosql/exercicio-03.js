@@ -25,6 +25,15 @@ async function main() {
             tags: ['nosql', 'mongodb', 'orion', 'newrizon']
         });
 
+        const mostrarPosts = await posts.find().toArray();
+
+        console.log('Posts encontrados no banco:');
+        console.table(mostrarPosts.map(p => ({
+            titulo: p.titulo,
+            autor: p.autor,
+            tags: p.tags || []
+        })));
+
     } catch (err) {
         console.error(err);
     } finally {
