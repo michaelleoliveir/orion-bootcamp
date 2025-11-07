@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    env_file:
+      - .env
+    command: node exercicio-04.js
+    networks:
+      - database_orion_network
+
+networks:
+  database_orion_network:
+    external: true
